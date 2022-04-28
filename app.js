@@ -20,7 +20,29 @@ function multTwoNumbers(a = 0, b = 0) {
 
 // show data in the greeting div
 function show_data(name, age) {
-    document.querySelector('#greeting').innerHTML = `<p>Welcome ${name}. You are ${age} years old</p>`
-    //succesful end
-    return true
+    // if statement - check for validity of name and age
+    checkString(name);
+    checkNumber(age);
+
+    // if either returns false
+    if (checkString(name) && checkNumber(age)) {
+        document.querySelector('#greeting').innerHTML = `<p>Welcome ${name}. You are ${age} years old</p>`
+        //succesful end
+        return true
+    }
+
+    return false;
+
+
+}
+
+function checkString(name) {
+    //checks here
+    someFunction();
+    return false;
+}
+
+function checkNumber(val) {
+    //checks her
+    return true;
 }
