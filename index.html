@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Mocha</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link href='https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css' rel='stylesheet' />
+</head>
+
+<body>
+    <!-- user info -->
+    <div id="info">
+        <p>Name: <input type="text" id="user_name"></p>
+        <p>Age: <input type="text" id="user_age"></p>
+        <button onclick="show_data()">Submit</button>
+    </div>
+
+    <!-- greeting the user -->
+    <div id="greeting">
+
+    </div>
+
+    <div id='mocha'></div>
+    <script src='https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js'></script>
+    <script src='https://cdn.rawgit.com/chaijs/chai/2.3.0/chai.js'></script>
+    <script>
+        window.onerror = function (msg, url, line) {
+            document.getElementById('mocha').innerHTML += '<h1>' + msg + '</' + 'h1>' + '<h2>' + url + ':' + line +
+                '</' + 'h2>';
+            return false
+        }
+    </script>
+    <script>
+        mocha.setup('bdd')
+    </script>
+    <!-- what to test: -->
+    <script src='app.js'></script>
+    <!-- tests to run: -->
+    <script src='testing.js'></script>
+
+    <script>
+        mocha.run()
+    </script>
+</body>
+
+</html>
